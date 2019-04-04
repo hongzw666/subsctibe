@@ -1,0 +1,13 @@
+# 配置MySQL数据库的连接参数
+spring:
+  datasource:
+   url: jdbc:mysql://127.0.0.1:3306/hong_zw?useSSL=false&serverTimezone=CST&allowPublicKeyRetrieval=true
+   username: hong_zw
+   password: root
+
+ # 配置Redis的连接信息
+   redis:
+      # 这里换自己的IP
+      host: 47.106.163.167
+      port: 6379
+      database: 14
