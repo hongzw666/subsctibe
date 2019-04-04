@@ -14,16 +14,16 @@ import com.fasterxml.jackson.core.io.DataOutputAsStream;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.hong.domain.InMessage;
 
-public class JsonRedisSerializer extends Jackson2JsonRedisSerializer<InMessage>{
+public class JsonRedisSerializer extends Jackson2JsonRedisSerializer<Object>{
 	private ObjectMapper objectMapper = new ObjectMapper();
 	
 	public JsonRedisSerializer() {
-		super(InMessage.class);
+		super(Object.class);
 	}
 	
 	//序列化调用的方法，把对象装换为byte[]
 	@Override
-	public byte[] serialize(InMessage t) throws SerializationException {
+	public byte[] serialize(Object t) throws SerializationException {
 		try {
 			
 			ByteArrayOutputStream baos = new ByteArrayOutputStream();//把数据输出到一个字节数组
@@ -44,7 +44,7 @@ public class JsonRedisSerializer extends Jackson2JsonRedisSerializer<InMessage>{
 	}
 //	反序列化调用的方法，把byte[]装换为对象
 	@Override
-	public InMessage deserialize(byte[] bytes) throws SerializationException {
+	public Object deserialize(byte[] bytes) throws SerializationException {
 		ByteArrayInputStream bais = new ByteArrayInputStream(bytes);
 		DataInputStream inputStream = new DataInputStream(bais);
 		//在写的时候，下吧类名的长度传入，此时要先得到类名的长度，再根据类名的长度类读取类名
