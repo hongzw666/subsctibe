@@ -23,6 +23,7 @@ import org.springframework.data.redis.listener.RedisMessageListenerContainer;
 import org.springframework.data.redis.listener.Topic;
 import org.springframework.data.redis.listener.adapter.MessageListenerAdapter;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.hong.domain.InMessage;
 import com.hong.domain.event.EventInMessage;
 import com.hong.processors.EventMessageProcessor;
@@ -142,6 +143,11 @@ public class SubscribeApplication implements //
 			LOG.warn("Bean的ID {} 无法调用对应的消息处理器: {}", id, e.getMessage());
 			LOG.trace(e.getMessage(), e);
 		}
+	}
+	@Bean
+	public ObjectMapper objectMapper() {
+		
+		return new ObjectMapper();
 	}
 
 	public static void main(String[] args) throws InterruptedException {

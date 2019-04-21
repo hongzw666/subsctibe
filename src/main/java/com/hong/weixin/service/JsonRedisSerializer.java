@@ -44,7 +44,7 @@ public class JsonRedisSerializer extends Jackson2JsonRedisSerializer<Object>{
 	}
 //	反序列化调用的方法，把byte[]装换为对象
 	@Override
-	public Object deserialize(byte[] bytes) throws SerializationException {
+	public InMessage deserialize(byte[] bytes) throws SerializationException {
 		ByteArrayInputStream bais = new ByteArrayInputStream(bytes);
 		DataInputStream inputStream = new DataInputStream(bais);
 		//在写的时候，下吧类名的长度传入，此时要先得到类名的长度，再根据类名的长度类读取类名
