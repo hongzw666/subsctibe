@@ -157,7 +157,4 @@ public class SubscribeApplication implements //
 //		CountDownLatch countDownLatch = new CountDownLatch(1);
 //		countDownLatch.await();
 	}
-
-	
-
 }
