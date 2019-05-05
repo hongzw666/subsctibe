@@ -124,7 +124,7 @@ public class SubscribeApplication implements //
 		// 支持*通配符，监听多个通道
 //		topics.add(new PatternTopic("kemao_1_*"));
 		// 监听具体某个通道
-		topics.add(new ChannelTopic("kemao_1_event"));
+		topics.add(new ChannelTopic("hongzw_event"));
 		container.addMessageListener(l, topics);
 
 		return container;
