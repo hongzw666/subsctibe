@@ -39,9 +39,8 @@ public class WeixinProxy {
 				.build();
 		try {
 			HttpResponse<String> response = client.send(request, BodyHandlers.ofString(Charset.forName("UTF-8")));
-
 			String body = response.body();
-
+			
 			LOG.trace("调用远程接口返回的内容 : \n{}", body);
 
 			if (body.contains("errcode")) {
